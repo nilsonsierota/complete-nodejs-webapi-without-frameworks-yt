@@ -12,4 +12,8 @@ export default class HeroService {
   create(data) {
     return this.heroRepository.create(data)
   }
+
+  update(id, data){
+    return this.heroRepository.update(id, data)
+  }
 }

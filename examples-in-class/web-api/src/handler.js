@@ -1,27 +1,14 @@
 
-import {
-  join,
-  dirname
-} from 'node:path'
-
-import {
-  fileURLToPath
-} from 'node:url'
-
-import {
-  parse
-} from 'node:url'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { parse } from 'node:url'
 import { routes } from './routes/heroRoute.js'
-import {
-  DEFAULT_HEADER
-} from './util/util.js'
+import { DEFAULT_HEADER } from './util/util.js'
 
 import { generateInstance } from './factories/heroFactory.js'
 
 const currentDir = dirname(
-  fileURLToPath(
-    import.meta.url
-  )
+  fileURLToPath(import.meta.url)
 )
 const filePath = join(currentDir, './../database', 'data.json')
 
@@ -58,7 +45,7 @@ function handler(request, response) {
   const chosen = allRoutes[key] || allRoutes.default
 
   return Promise.resolve(chosen(request, response))
-  .catch(handlerError(response))
+    .catch(handlerError(response))
 }
 
 function handlerError(response) {

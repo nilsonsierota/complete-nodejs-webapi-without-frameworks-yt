@@ -30,6 +30,14 @@ export default class HeroRepository {
     return data.id
   }
 
+  async update(id, data){
+    const currentFile = await this.#currentFileContent()
+    const currentRegister = currentFile.find(id)
+    const updatedRegister = currentRegister.update({
+      
+    })
+  }
+
 }
 /*
 const heroRepository = new HeroRepository({

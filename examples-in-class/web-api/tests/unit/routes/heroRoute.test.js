@@ -3,9 +3,7 @@ import assert from 'node:assert'
 const callTracker = new assert.CallTracker()
 process.on('exit', () => callTracker.verify())
 
-import { 
-  routes
-} from './../../../src/routes/heroRoute.js'
+import { routes } from './../../../src/routes/heroRoute.js'
 import { DEFAULT_HEADER } from '../../../src/util/util.js'
 
 test('Hero routes - endpoints test suite', async (t) => {
@@ -25,7 +23,7 @@ test('Hero routes - endpoints test suite', async (t) => {
       heroService: heroServiceStub
     })
 
-    const endpoint  = '/heroes:get'
+    const endpoint = '/heroes:get'
     const request = {}
     const response = {
       write: callTracker.calls(item => {

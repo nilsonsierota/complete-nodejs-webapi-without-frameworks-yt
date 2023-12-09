@@ -33,6 +33,20 @@ const routes = ({
 
     return response.end()
   },
+
+  '/heroes:put': async(request, response) => {
+    const data = await once(request, 'data')
+    const item = JSON.parse(data)
+    const hero = new Hero(item)
+
+    const id = await heroService.update(id, hero)
+
+    response.writeHead(200, DEFAULT_HEADER)
+    response.write(JSON.stringify({
+      id,
+      success: 'User updated with success!!'
+    }))
+  }
 })
 
 export {
